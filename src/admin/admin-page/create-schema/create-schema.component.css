@@ -1,0 +1,8 @@
+json-editor {
+    width: 50%;
+    display: list-item;
+}
+
+.jsoneditor {
+    min-height: 250px;
+}

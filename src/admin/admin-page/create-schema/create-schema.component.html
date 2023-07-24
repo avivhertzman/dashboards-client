@@ -1,0 +1,5 @@
+<form  [formGroup]="form">
+
+<json-editor [options]="editorOptions" formControlName="schemaInput"></json-editor>
+</form>
+<button [disabled]="disableCreate" mat-raised-button color="primary" (click)="createSchema()">create schema</button>
