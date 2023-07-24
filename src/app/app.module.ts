@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AdminModule } from 'src/admin/admin.module';
 import { CommonModule } from '@angular/common';
+import { CoreModule } from 'src/core/core.module';
+import { ConfigService } from 'src/core/config/config.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     MatSlideToggleModule,
     AdminModule,
-    CommonModule
+    CommonModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

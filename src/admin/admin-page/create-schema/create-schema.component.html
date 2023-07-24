@@ -1,5 +1,3 @@
-<form  [formGroup]="form">
-
-<json-editor [options]="editorOptions" formControlName="schemaInput"></json-editor>
-</form>
-<button [disabled]="disableCreate" mat-raised-button color="primary" (click)="createSchema()">create schema</button>
+<schema-editor [(disableCreate)]=isDisabled [(schemaToCreate)]=schema></schema-editor>
+<button [disabled]="isDisabled" mat-raised-button color="primary" (click)="createSchema()">create schema</button>
+<h1 *ngIf="success">Your schema was succesfuly createt. the name of the schema is {{schemaName}}</h1>

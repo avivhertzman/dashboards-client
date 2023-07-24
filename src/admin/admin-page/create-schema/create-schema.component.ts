@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SchemaService } from '../services/schema.service';
 
 
 @Component({
@@ -9,49 +10,27 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['/create-schema.component.css']
 })
 export class CreateSchemaComponent {
-  public editorOptions: JsonEditorOptions;
-  public data: any;
-  public form: FormGroup;
-  public disableCreate = false;
+  public isDisabled = false;
+  public schema: any;
+  public schemaName: string = '';
+  public success = false;
+  constructor(private schemaService: SchemaService) {
+  }
 
-  constructor(private fb: FormBuilder) {
-    this.data =
-    {
-      "$id": "https://example.com/person.schema.json",
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "title": "Person",
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "type": "string",
-          "description": "The person's first name."
+  async createSchema() {
+    this.schemaService.createSchema({ schema: this.schema })
+      .subscribe(
+        (val: any) => {
+          // TODO: turn this to material modal
+          this.success = true;
+          this.schemaName = val.name;
         },
-        "lastName": {
-          "type": "string",
-          "description": "The person's last name."
+        (response: any) => {
+          console.log("PUT call in error", response);
+        },
+        () => {
+          console.log("The PUT observable is now completed.");
         }
-      }
-    }
-    this.form = this.fb.group({
-      schemaInput: [this.data]
-    });
-
-    this.editorOptions = new JsonEditorOptions()
-    this.editorOptions.modes = ['code'];
-    this.editorOptions.onValidationError = this.handleFormError.bind(this);
-  }
-  
-  handleFormError(errors: object[]) {
-    if (errors.length == 0) {
-      this.disableCreate = false;
-    }
-    else {
-      this.disableCreate = true;
-    }
-  }
-
-  createSchema() {
-    console.log(this.form.value.schemaInput)
-
+      );
   }
 }
