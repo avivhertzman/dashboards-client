@@ -1,8 +1,8 @@
 <mat-tab-group>
   <mat-tab label="Create Schema">
-    <create-schema></create-schema>
+    <create-schema (schemaCreatedEvent)="refreshScemasId()"></create-schema>
   </mat-tab>
   <mat-tab label="Test Event">
-    <test-event></test-event>
+    <test-event #testEventRef></test-event>
   </mat-tab>
 </mat-tab-group>

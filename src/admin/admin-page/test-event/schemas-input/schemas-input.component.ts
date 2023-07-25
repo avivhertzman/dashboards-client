@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChange, SimpleChanges } from '@angular/core';
 import { SchemaService } from 'src/admin/admin-page/services/schema.service';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -12,9 +12,9 @@ import { FormControl } from '@angular/forms';
 })
 export class SchemasInputComponent implements OnInit {
   @Input() schemaId = '';
+  @Input() shouldRefreshSchemas = false;
   @Output() schemaIdChange = new EventEmitter();
- 
-  @Output() newItemEvent = new EventEmitter();
+  @Output() changeIdEvent = new EventEmitter();
 
   public idsOptions!: string[];
   public filteredOptions!: any;
@@ -25,13 +25,18 @@ export class SchemasInputComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
+  }
+  refreshSchemas() {
     this.schemaService.getAllSchemasIds().subscribe((val: string[]) => {
       this.idsOptions = val;
     })
   }
   changeId(value: any) {
-    this.newItemEvent.emit(value);
+    this.changeIdEvent.emit(value);
 
-   // this.schemaIdChange.emit(this.myControl.value || '');
+    // this.schemaIdChange.emit(this.myControl.value || '');
+
   }
+
 }

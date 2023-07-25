@@ -39,7 +39,7 @@ export class SchemaEditorComponent {
     });
 
     this.editorOptions = new JsonEditorOptions()
-    this.editorOptions.modes = ['code'];
+    this.editorOptions.mode = 'code';
     this.editorOptions.onValidationError = this.handleFormError.bind(this);
   }
 

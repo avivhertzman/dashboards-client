@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SchemaService } from '../services/schema.service';
@@ -10,6 +10,7 @@ import { SchemaService } from '../services/schema.service';
   styleUrls: ['/create-schema.component.css']
 })
 export class CreateSchemaComponent {
+  @Output() schemaCreatedEvent = new EventEmitter<boolean>();
   public isDisabled = false;
   public schema: any;
   public schemaName: string = '';
@@ -24,6 +25,7 @@ export class CreateSchemaComponent {
           // TODO: turn this to material modal
           this.success = true;
           this.schemaName = val.name;
+          this.schemaCreatedEvent.emit();
         },
         (response: any) => {
           console.log("PUT call in error", response);
