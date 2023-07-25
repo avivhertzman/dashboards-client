@@ -1,12 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
-import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { SchemaService } from './services/schema.service';
 
 
 @Component({
   selector: 'admin-page',
   templateUrl: './admin-page.component.html',
-   styleUrls: ['/admin-page.component.css']
+  styleUrls: ['/admin-page.component.css']
 })
 export class AdminPageComponent {
 

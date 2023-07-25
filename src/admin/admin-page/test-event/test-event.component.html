@@ -1,0 +1,2 @@
+<schemas-input [(schemaId)]="selectedId" (newItemEvent)="getSchema($event)"></schemas-input>
+<event-form *ngIf="schema!=undefined" [schemaId1]="schema" (sendEvent)="createEvent($event)"></event-form>

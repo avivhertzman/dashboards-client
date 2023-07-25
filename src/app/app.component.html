@@ -1,3 +1,4 @@
 <mat-slide-toggle (click)="changePage()">
     {{title}}</mat-slide-toggle>
 <admin-page *ngIf="page=='admins'"></admin-page>
+<dashboard-page *ngIf="page=='dashboards'"></dashboard-page>

@@ -1,7 +1,7 @@
-import { ConfigService } from './config/config.service';
 import { NgModule } from '@angular/core';
+import { EventService } from './event/event.service';
 
 @NgModule({
- //   providers: [ConfigService]
+    providers: [EventService]
 })
 export class CoreModule { }

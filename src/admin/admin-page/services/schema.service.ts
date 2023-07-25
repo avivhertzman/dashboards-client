@@ -20,6 +20,11 @@ export class SchemaService {
     }
     createSchema(schema: object) {
         return this.http.post<object>(this.serverUrl + this.SCHEMAS_ROUTE, { schema })
-
+    }
+    getAllSchemasIds() {
+        return this.http.get<string[]>(this.serverUrl + this.SCHEMAS_ROUTE + "?field=id");
+    }
+    getSchemaById(id: string) {
+        return this.http.get<object>(this.serverUrl + this.SCHEMAS_ROUTE + "/" + id);
     }
 }

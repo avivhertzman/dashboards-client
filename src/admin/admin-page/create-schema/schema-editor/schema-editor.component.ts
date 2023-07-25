@@ -43,11 +43,10 @@ export class SchemaEditorComponent {
     this.editorOptions.onValidationError = this.handleFormError.bind(this);
   }
 
-  // TODO: change this to change the schemaToCreate not only in error
+  // TODO: maybe replace this function
   handleFormError(errors: object[]) {
     if (errors.length == 0) {
       this.disableCreateChange.emit(false);
-      this.schemaToCreateChange.emit(this.form.value.schemaInput);
     }
     else {
       this.disableCreateChange.emit(true);
@@ -56,5 +55,9 @@ export class SchemaEditorComponent {
 
   createSchema() {
     console.log(this.form.value.schemaInput)
+  }
+
+  onChange() {
+    this.schemaToCreateChange.emit(this.form.value.schemaInput);
   }
 }
