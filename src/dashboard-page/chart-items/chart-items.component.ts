@@ -11,25 +11,6 @@ export class ChartItemsComponent implements OnInit {
   public termsCharts: any[] = [];
   public dateCharts: any[] = [];
   public Charts: any[] = [];
-  public line =
-    [{
-      "name": "Germany",
-      "series": [
-        {
-          "name": "1990",
-          "value": 62000000
-        },
-        {
-          "name": "2010",
-          "value": 73000000
-        },
-        {
-          "name": "2011",
-          "value": 89400000
-        }
-      ]
-    }
-    ];
   public mapping: any = [];
   public avivv = "hiii";
   view: [number, number] = [500, 300];

@@ -6,8 +6,8 @@
         <mat-label>pick chart type</mat-label>
         <input formControlName ="selectedChartType" type="text" placeholder="Pick one" aria-label="Chart Type" matInput [matAutocomplete]="auto2">
         <mat-autocomplete #auto2="matAutocomplete">
-            <mat-option *ngFor="let option of charTypes" [value]="option">
-                {{option}}
+            <mat-option *ngFor="let option of chartTypes | keyvalue" [value]="option.key">
+                {{option.key}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>

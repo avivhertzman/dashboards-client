@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { from, Observable, of } from 'rxjs';
-
+import { Observable, of } from 'rxjs';
 import { Config } from "./config";
-import { CoreModule } from '../core.module';
 
 @Injectable()
 export class ConfigService {

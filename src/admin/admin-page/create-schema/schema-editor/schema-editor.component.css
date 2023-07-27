@@ -1,9 +1,0 @@
-json-editor {
-    width: 100%;
-    display: list-item;
-    background-color: pink;
-}
-
-.jsoneditor .jsoneditor-mode-code {
-    height: 500px !important;
-}

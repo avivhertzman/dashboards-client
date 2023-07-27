@@ -1,20 +1,11 @@
 import { NgModule } from '@angular/core';
 import { DashboardPageComponent } from './dashboard-page.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
-import { CommonModule } from '@angular/common';
 import { CreateChartDialogComponent } from './create-chart-dialog/create-chart-dialog.component';
 import { CreateChartDialogContentComponent } from './create-chart-dialog/create-chart-dialog-content/create-chart-dialog-content.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
-import {NgIf} from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
-import { AdminModule } from 'src/admin/admin.module';
-import { ChartService } from 'src/core/chart/chart.service';
 import { ChartItemsComponent } from './chart-items/chart-items.component';
+import { SharedModule } from 'src/shared/shared.module';
+import { AdminModule } from 'src/admin/admin.module';
 
 @NgModule({
     declarations: [
@@ -24,23 +15,13 @@ import { ChartItemsComponent } from './chart-items/chart-items.component';
         ChartItemsComponent,
     ],
     imports: [
-        MatAutocompleteModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        CommonModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatDialogModule,
+        SharedModule,
         AdminModule,
         NgxChartsModule
-       // NgIf
     ],
     exports: [
         DashboardPageComponent 
     ],
-    providers: [ChartService]
+    providers: []
 })
 export class DashboardPageModule { }

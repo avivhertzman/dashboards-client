@@ -1,7 +1,5 @@
-import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { SchemaService } from '../services/schema.service';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { SchemaService } from '../../../core/schema/schema.service';
 
 
 @Component({
@@ -27,8 +25,8 @@ export class CreateSchemaComponent {
           this.schemaName = val.name;
           this.schemaCreatedEvent.emit();
         },
+        // TODO: handle error
         (response: any) => {
-          console.log("PUT call in error", response);
         },
         () => {
           console.log("The PUT observable is now completed.");

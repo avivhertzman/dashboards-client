@@ -1,13 +1,10 @@
 import { Injectable } from "@angular/core";
-import { AdminModule } from 'src/admin/admin.module';
 import { ConfigService } from 'src/core/config/config.service';
 import { HttpClient } from '@angular/common/http';
+import { SCHEMAS_ROUTE, FIELD_QUERY_PARAM, URL_SEPERATOR } from 'src/data/constants/schema.constants';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class SchemaService {
-    private SCHEMAS_ROUTE = '/event-schema'
     private serverUrl: string = '';
 
     constructor(private config: ConfigService, private http: HttpClient) {
@@ -19,12 +16,12 @@ export class SchemaService {
 
     }
     createSchema(schema: object) {
-        return this.http.post<object>(this.serverUrl + this.SCHEMAS_ROUTE, { schema })
+        return this.http.post<object>(this.serverUrl + SCHEMAS_ROUTE, { schema })
     }
     getAllSchemasIds() {
-        return this.http.get<string[]>(this.serverUrl + this.SCHEMAS_ROUTE + "?field=id");
+        return this.http.get<string[]>(this.serverUrl + SCHEMAS_ROUTE + FIELD_QUERY_PARAM);
     }
     getSchemaById(id: string) {
-        return this.http.get<object>(this.serverUrl + this.SCHEMAS_ROUTE + "/" + id);
+        return this.http.get<object>(this.serverUrl + SCHEMAS_ROUTE + URL_SEPERATOR + id);
     }
 }

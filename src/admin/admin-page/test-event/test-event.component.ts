@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
-import { SchemaService } from '../services/schema.service';
+import { SchemaService } from '../../../core/schema/schema.service';
 import { EventService } from 'src/core/event/event.service';
 import { SchemasInputComponent } from './schemas-input/schemas-input.component';
 

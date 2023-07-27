@@ -2,9 +2,8 @@ import { ObjectTypeComponent } from './types/object.type';
 import { ArrayTypeComponent } from './types/array.type';
 import { FormlyModule } from '@ngx-formly/core';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormlyMaterialModule } from '@ngx-formly/material';
 import { typeValidationMessage, minItemsValidationMessage, maxItemsValidationMessage, minLengthValidationMessage, maxLengthValidationMessage } from "./validators/validators.service";
+import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -12,8 +11,7 @@ import { typeValidationMessage, minItemsValidationMessage, maxItemsValidationMes
         ArrayTypeComponent
     ],
     imports: [
-        CommonModule,
-        FormlyMaterialModule,
+        SharedModule,
         FormlyModule.forRoot({
             validationMessages: [
                 { name: 'required', message: 'This field is required' },

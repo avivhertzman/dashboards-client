@@ -1,8 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { SchemaService } from 'src/admin/admin-page/services/schema.service';
-import { map, startWith } from 'rxjs/operators';
-
-import { FormControl } from '@angular/forms';
 import { ChartItemsComponent } from './chart-items/chart-items.component';
 
 

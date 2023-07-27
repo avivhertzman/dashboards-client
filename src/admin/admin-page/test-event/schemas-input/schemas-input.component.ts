@@ -1,9 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChange, SimpleChanges } from '@angular/core';
-import { SchemaService } from 'src/admin/admin-page/services/schema.service';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-
-import { FormControl } from '@angular/forms';
+import { SchemaService } from 'src/core/schema/schema.service';
 
 @Component({
   selector: 'schemas-input',
@@ -11,19 +7,17 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./schemas-input.component.css']
 })
 export class SchemasInputComponent implements OnInit {
-  @Input() shouldRefreshSchemas = false;
-  @Output() changeIdEvent = new EventEmitter();
-
+  @Input() shouldRefreshSchemas: boolean;
+  @Output() changeIdEvent: EventEmitter<any>;
   public idsOptions!: string[];
   public filteredOptions!: any;
-  public myControl = new FormControl('');
-
 
   constructor(private schemaService: SchemaService) {
-
+    this.changeIdEvent = new EventEmitter();
+    this.shouldRefreshSchemas = false;
   }
   ngOnInit(): void {
-        this.refreshSchemas();
+    this.refreshSchemas();
 
   }
   refreshSchemas() {
@@ -34,5 +28,4 @@ export class SchemasInputComponent implements OnInit {
   changeId(value: any) {
     this.changeIdEvent.emit(value);
   }
-
 }

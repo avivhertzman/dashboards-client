@@ -1,4 +1,4 @@
-import { FormlyModule, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 export function typeValidationMessage({ schemaType }: any) {
     return `should be "${schemaType[0]}".`;
