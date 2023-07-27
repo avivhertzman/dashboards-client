@@ -11,9 +11,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./schemas-input.component.css']
 })
 export class SchemasInputComponent implements OnInit {
-  @Input() schemaId = '';
   @Input() shouldRefreshSchemas = false;
-  @Output() schemaIdChange = new EventEmitter();
   @Output() changeIdEvent = new EventEmitter();
 
   public idsOptions!: string[];
@@ -25,6 +23,7 @@ export class SchemasInputComponent implements OnInit {
 
   }
   ngOnInit(): void {
+        this.refreshSchemas();
 
   }
   refreshSchemas() {
@@ -34,9 +33,6 @@ export class SchemasInputComponent implements OnInit {
   }
   changeId(value: any) {
     this.changeIdEvent.emit(value);
-
-    // this.schemaIdChange.emit(this.myControl.value || '');
-
   }
 
 }

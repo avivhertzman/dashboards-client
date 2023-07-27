@@ -1,0 +1,42 @@
+<form [formGroup]="createChartForm" (ngSubmit)="createChart()">
+    <h1>
+        Create New Chart
+    </h1>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>pick chart type</mat-label>
+        <input formControlName ="selectedChartType" type="text" placeholder="Pick one" aria-label="Chart Type" matInput [matAutocomplete]="auto2">
+        <mat-autocomplete #auto2="matAutocomplete">
+            <mat-option *ngFor="let option of charTypes" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <schemas-input (changeIdEvent)="getSchema($event)" *ngIf="isNotLineChart()">
+
+    </schemas-input>
+
+
+    <mat-form-field class="example-full-width" appearance="fill" *ngIf="isNotLineChart()">
+        <mat-label>pick schema property</mat-label>
+        <input formControlName ="selectedProperty" type="text" placeholder="Pick one" aria-label="Schema Id" matInput [matAutocomplete]="auto1">
+        <mat-autocomplete #auto1="matAutocomplete">
+            <mat-option *ngFor="let option of properties" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill" *ngIf="!isNotLineChart()">
+        <mat-label>pick interval</mat-label>
+        <input type="number" formControlName="selectedIntervalNumber"  placeholder="Pick one" aria-label="interval value" matInput>
+    </mat-form-field>
+    <mat-form-field  class="example-full-width" appearance="fill" *ngIf="!isNotLineChart()">
+        <mat-label>pick interval unit</mat-label>
+        <input formControlName="selectedIntervalUnit" type="text" placeholder="Pick one" aria-label="intervalUnit" matInput [matAutocomplete]="auto1">
+        <mat-autocomplete #auto1="matAutocomplete">
+            <mat-option *ngFor="let option of intervalUnits" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field> 
+    <button type="submit" mat-raised-button [disabled]="!createChartForm.valid">create schema</button>
+</form>

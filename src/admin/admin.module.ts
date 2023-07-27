@@ -57,7 +57,7 @@ export function typeValidationMessage({ schemaType }: any) {
     SchemaTypesModule,
     FormlyModule
   ],
-  exports: [AdminPageComponent, CommonModule],
+  exports: [AdminPageComponent, CommonModule, SchemasInputComponent],
   // TODO: make this work
   //  providers: [SchemaService]
 })

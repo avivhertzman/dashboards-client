@@ -1,3 +1,3 @@
-<schemas-input [(schemaId)]="selectedId" (changeIdEvent)="getSchema($event)" #schemaInputRef></schemas-input>
+<schemas-input (changeIdEvent)="getSchema($event)" #schemaInputRef></schemas-input>
 <event-form *ngIf="schema!=undefined" [schemaId1]="schema" (sendEvent)="createEvent($event)"></event-form>
 <h1 *ngIf="createSuccess">sucess creating event</h1>

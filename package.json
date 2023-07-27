@@ -22,6 +22,7 @@
     "@angular/router": "^15.1.0",
     "@ngx-formly/core": "^6.1.8",
     "@ngx-formly/material": "^6.1.8",
+    "@swimlane/ngx-charts": "^20.4.1",
     "ang-jsoneditor": "^3.1.0",
     "jsoneditor": "^9.10.2",
     "rxjs": "~7.4.0",

@@ -14,11 +14,9 @@ export class TestEventComponent {
 
   @Input() public refreshShcema: boolean = false;
   public shouldRefresh = false;
-  public selectedId: string;
   public schema: any;
   public createSuccess = false;
   constructor(private schemaService: SchemaService, private eventService: EventService) {
-    this.selectedId = "";
   }
   
   getSchema(value: any) {
