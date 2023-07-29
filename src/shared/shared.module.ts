@@ -10,6 +10,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { FormlyModule } from '@ngx-formly/core';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSnackBar, MatSnackBarRef, MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -26,6 +30,9 @@ import { FormlyModule } from '@ngx-formly/core';
         CommonModule,
         MatButtonModule,
         MatDialogModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatSnackBarModule
     ],
     exports: [
         MatAutocompleteModule,
@@ -40,7 +47,10 @@ import { FormlyModule } from '@ngx-formly/core';
         MatDialogModule, 
         MatSlideToggleModule,
         FormlyMaterialModule,
-        FormlyModule
+        FormlyModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatSnackBarModule
     ],
     providers: [
 
