@@ -8,6 +8,7 @@ import { SchemaService } from 'src/core/schema/schema.service';
 })
 export class SchemasInputComponent implements OnInit {
   @Input() shouldRefreshSchemas: boolean;
+  @Input() required: boolean;
   @Output() changeIdEvent: EventEmitter<any>;
   public idsOptions!: string[];
   public filteredOptions!: any;
