@@ -1,0 +1,12 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.app-name-header {
+    color: #C27085;
+}
+
+.page-title {
+    min-width: 5%;
+    color: #E7C6CE;
+}
