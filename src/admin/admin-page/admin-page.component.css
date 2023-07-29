@@ -2,3 +2,18 @@ mat-tab-group {
     width: 80%;
     margin: auto;
 }
+
+:host ::ng-deep .mat-mdc-tab-label-container {
+    background-color: #D0B59F;
+}
+
+:host ::ng-deep .mdc-tab__text-label
+{
+    color: gray;
+}
+
+:host ::ng-deep .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label
+{
+    color: white;
+
+}

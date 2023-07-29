@@ -5,3 +5,22 @@
 .jsoneditor {
     height: 500px;
 }
+
+.chart-legend .legend-title-text {
+    font-family: 'Roboto, sans-serif'!important;
+  }
+
+  body {
+    font-family: 'Roboto, sans-serif'!important;
+  }
+
+  .chart-legend .legend-title{
+    padding-top: 3px!important;
+  }
+  
+.success-message {
+  --mdc-snackbar-container-color: greenyellow;
+}
+.error-message {
+  --mdc-snackbar-container-color: red;
+}

@@ -1,3 +1,3 @@
 <schema-editor [(disableCreate)]=isDisabled [(schemaToCreate)]=schema></schema-editor>
-<button [disabled]="isDisabled" mat-raised-button color="primary" (click)="createSchema()">create schema</button>
+<button [disabled]="isDisabled" id="createSchema" mat-raised-button (click)="createSchema()">create schema</button>
 <h1 *ngIf="success">Your schema was succesfuly createt. the name of the schema is {{schemaName}}</h1>

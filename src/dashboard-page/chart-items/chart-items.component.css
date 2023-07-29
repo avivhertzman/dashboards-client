@@ -2,3 +2,10 @@ chart-items {
   display: flex;
   flex-wrap: wrap;
 }
+
+.ng-star-inserted {
+  box-shadow: 1px 1px 1px 1px grey;
+}
+.chart-legend .legend-title{
+  padding-top: 3px!important;
+}

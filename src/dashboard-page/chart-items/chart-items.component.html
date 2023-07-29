@@ -1,7 +1,7 @@
 <div *ngFor='let aggObject of termsCharts; let i = index;'>
     <div *ngFor='let agg of aggObject | keyvalue'>
         <ngx-charts-pie-chart *ngIf="isPie(agg.key)" [view]="view" [scheme]="colorScheme" [results]="getItem(agg.value)"
-            [labels]=true [legendTitle]="getItem(agg.key)" [legend]=true>
+            [labels]=true [legendTitle]="getItem(agg.key)" [legend]=true class="mat-elevation-z2">
         </ngx-charts-pie-chart>
         <ngx-charts-bar-vertical *ngIf="isBar(agg.key)" [view]="view" [scheme]="colorScheme"
             [results]="getItem(agg.value)" [xAxis]="true" [yAxis]="true" [legend]="true" [showXAxisLabel]="true"

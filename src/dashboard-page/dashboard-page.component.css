@@ -1,4 +1,12 @@
 chart-items {
 display: flex;
   flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    place-content: space-evenly
+  
+}
+
+button {
+  background-color: salmon;
 }

@@ -19,7 +19,7 @@ export class ChartItemsComponent implements OnInit {
     name: 'myScheme',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#723141', '#C27085', '#E7C6CE', 'F9F1F3'],
+    domain: ['#723141', '#C27085', '#E7C6CE', '#F9F1F3'],
   };
   constructor(private chartService: ChartService) {
   }
