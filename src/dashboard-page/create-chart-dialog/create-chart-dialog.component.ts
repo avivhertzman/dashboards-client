@@ -21,7 +21,6 @@ export class CreateChartDialogComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       this.aggregation = result;
       this.chartCreatedEvent.emit(this.aggregation);
-      console.log('The dialog was closed');
     });
   }
 

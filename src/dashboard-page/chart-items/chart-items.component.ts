@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { ChartService } from 'src/core/chart/chart.service';
+import { PIE_CHART_TYPE, LINE_CHART_TYPE, CHART_MEASURMENTS_HIGHT, CHART_MEASURMENTS_WIDTH, CHART_COLORS, BAR_CHART_TYPE } from "../../data/constants/chart.constants";
 
 @Component({
   selector: 'chart-items',
@@ -8,18 +9,17 @@ import { ChartService } from 'src/core/chart/chart.service';
   styleUrls: ['./chart-items.component.css']
 })
 export class ChartItemsComponent implements OnInit {
-  public termsCharts: any[] = [];
-  public dateCharts: any[] = [];
-  public Charts: any[] = [];
-  public mapping: any = [];
-  public avivv = "hiii";
-  view: [number, number] = [500, 300];
-  public aggs: any;
+  termsCharts: any[] = [];
+  dateCharts: any[] = [];
+  Charts: any[] = [];
+  mapping: any = [];
+  view: [number, number] = [CHART_MEASURMENTS_HIGHT, CHART_MEASURMENTS_WIDTH];
+  aggs: any;
   colorScheme: Color = {
     name: 'myScheme',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#723141', '#C27085', '#E7C6CE', '#F9F1F3'],
+    domain: CHART_COLORS,
   };
   constructor(private chartService: ChartService) {
   }
@@ -29,7 +29,6 @@ export class ChartItemsComponent implements OnInit {
         this.mapping = chartsResponse.mapping;
         this.initChartsData(chartsResponse)
       }
-      // this.charts = charts.aggregations;
     });
   }
   initChartsData(chartsResponse: any) {
@@ -47,26 +46,25 @@ export class ChartItemsComponent implements OnInit {
 
   addChart(result: any) {
     console.log(result);
-    if (Object.values(result.mapping)[0] == 'LINE') {
+    if (Object.values(result.mapping)[0] == LINE_CHART_TYPE) {
       this.dateCharts.push({
         name: Object.keys(result.mapping)[0], series: Object.values(result.aggregations[0])[0]
       });
     } else {
       this.termsCharts.push(...result.aggregations);
     }
-   // this.mapping.push(...result.mapping);
-    this.mapping[Object.keys(result.mapping)[0]] = Object.values(result.mapping)[0] ;
+    this.mapping[Object.keys(result.mapping)[0]] = Object.values(result.mapping)[0];
   }
-  public getItem(key: any) {
+  getItem(key: any) {
     return key;
   }
   isPie(aggKey: any) {
-    return this.mapping && this.mapping[aggKey] && this.mapping[aggKey].toUpperCase() == 'PIE'
+    return this.mapping && this.mapping[aggKey] && this.mapping[aggKey].toUpperCase() == PIE_CHART_TYPE
   }
   isBar(aggKey: any) {
-    return this.mapping && this.mapping[aggKey] && this.mapping[aggKey].toUpperCase() == 'BAR'
+    return this.mapping && this.mapping[aggKey] && this.mapping[aggKey].toUpperCase() == BAR_CHART_TYPE
   }
   isLine(aggKey: any) {
-    return this.mapping && this.mapping[aggKey] && this.mapping[aggKey].toUpperCase() == 'LINE'
+    return this.mapping && this.mapping[aggKey] && this.mapping[aggKey].toUpperCase() == LINE_CHART_TYPE
   }
 }

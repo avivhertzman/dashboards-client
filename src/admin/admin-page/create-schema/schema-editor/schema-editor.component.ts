@@ -23,7 +23,6 @@ export class SchemaEditorComponent {
 
   }
 
-  // TODO: maybe replace this function
   handleFormError(errors: object[]) {
     if (errors.length == 0) {
       this.disableCreateChange.emit(false);
@@ -31,10 +30,6 @@ export class SchemaEditorComponent {
     else {
       this.disableCreateChange.emit(true);
     }
-  }
-
-  createSchema() {
-    console.log(this.form.value.schemaInput)
   }
 
   onChange() {

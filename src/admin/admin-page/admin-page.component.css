@@ -4,7 +4,7 @@ mat-tab-group {
 }
 
 :host ::ng-deep .mat-mdc-tab-label-container {
-    background-color: #D0B59F;
+    background-color: rgb(231, 198, 206);
 }
 
 :host ::ng-deep .mdc-tab__text-label

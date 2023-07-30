@@ -20,16 +20,9 @@ export class CreateSchemaComponent {
     this.schemaService.createSchema({ schema: this.schema })
       .subscribe(
         (val: any) => {
-          // TODO: turn this to material modal
           this.success = true;
           this.schemaName = val.name;
           this.schemaCreatedEvent.emit();
-        },
-        // TODO: handle error
-        (response: any) => {
-        },
-        () => {
-          console.log("The PUT observable is now completed.");
         }
       );
   }

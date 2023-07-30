@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="refreshScemasId()">
   <mat-tab label="Create Schema">
     <create-schema (schemaCreatedEvent)="refreshScemasId()"></create-schema>
   </mat-tab>
