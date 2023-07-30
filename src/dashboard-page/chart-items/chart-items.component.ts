@@ -13,7 +13,7 @@ export class ChartItemsComponent implements OnInit {
   dateCharts: any[] = [];
   Charts: any[] = [];
   mapping: any = [];
-  view: [number, number] = [CHART_MEASURMENTS_HIGHT, CHART_MEASURMENTS_WIDTH];
+  view: [number, number] = [CHART_MEASURMENTS_WIDTH, CHART_MEASURMENTS_HIGHT];
   aggs: any;
   colorScheme: Color = {
     name: 'myScheme',
